@@ -1,21 +1,16 @@
-import { useState } from 'react';
+import { GeneralProvider } from '@context/GeneralContext';
 import './App.css';
-import { MainContainer } from './modules/layout/Main';
+import { router } from './router';
+import { RouterProvider } from 'react-router-dom';
+import { MainContainer } from '@modules/layout/Main';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <MainContainer>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-    </MainContainer>
+    <GeneralProvider>
+      <MainContainer>
+        <RouterProvider router={router} />
+      </MainContainer>
+    </GeneralProvider>
   );
 }
 

@@ -12,7 +12,7 @@ import { compression } from 'vite-plugin-compression2';
 // import { analyzer } from 'vite-bundle-analyzer';
 import { dependencies } from './package.json';
 function renderChunks(deps: Record<string, string>) {
-  const chunks = {};
+  const chunks = {} as Record<string, any>;
   Object.keys(deps).forEach((key) => {
     if (['react', 'react-router-dom', 'react-dom'].includes(key)) return;
     chunks[key] = [key];
@@ -42,18 +42,12 @@ export default defineConfig({
   plugins: plugins,
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
       '@api': path.resolve(__dirname, './src/api'),
+      '@app-types': path.resolve(__dirname, './src/types'),
       '@components': path.resolve(__dirname, './src/components'),
-      '@constants': path.resolve(__dirname, './src/utils/constants'),
-      '@hooks': path.resolve(__dirname, './src/utils/hooks'),
-      '@interfaces': path.resolve(__dirname, './src/utils/interfaces'),
+      '@context': path.resolve(__dirname, './src/context'),
       '@modules': path.resolve(__dirname, './src/modules'),
-      '@mui/material': path.resolve('./node_modules/@mui/material/modern'),
       '@pages': path.resolve(__dirname, './src/pages'),
-      '@resources': path.resolve(__dirname, './src/resources'),
-      '@store': path.resolve(__dirname, './src/store'),
-      '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
   server: {
