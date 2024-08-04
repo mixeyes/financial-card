@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './styles/footer.css';
+import { NavLink } from 'react-router-dom';
 
 export const Footer: FC = () => {
   return (
@@ -17,16 +18,10 @@ export const Footer: FC = () => {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <a href='#'>Home</a>
+                <NavLink to='/'>Home</NavLink>
               </li>
               <li>
-                <a href='#'>About</a>
-              </li>
-              <li>
-                <a href='#'>Services</a>
-              </li>
-              <li>
-                <a href='#'>Contact</a>
+                <NavLink to='/premium'>Premium</NavLink>
               </li>
             </ul>
           </div>

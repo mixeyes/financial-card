@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './styles/header.css';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Header: FC = () => {
   return (
@@ -7,21 +8,15 @@ export const Header: FC = () => {
       <div className='container'>
         <div className='header-content'>
           <div className='logo'>
-            <a href='#'>Financial card demo</a>
+            <Link to='#'>Financial card demo</Link>
           </div>
           <nav>
             <ul>
               <li>
-                <a href='#'>Home</a>
+                <NavLink to='/'>Home</NavLink>
               </li>
               <li>
-                <a href='#'>About</a>
-              </li>
-              <li>
-                <a href='#'>Services</a>
-              </li>
-              <li>
-                <a href='#'>Contact</a>
+                <NavLink to='/premium'>Premium</NavLink>
               </li>
             </ul>
           </nav>

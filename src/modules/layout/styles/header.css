@@ -1,13 +1,12 @@
 .header {
   background-color: #333;
   color: #fff;
-  padding: 20px 0;
+  height: 9vh;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .header-content {
@@ -15,12 +14,23 @@
   justify-content: space-between;
   align-items: center;
 }
+.logo {
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
 
-.logo a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 nav ul {

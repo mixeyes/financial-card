@@ -2,16 +2,15 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { FC } from 'react';
 import './styles/main.css';
+import { Outlet } from 'react-router-dom';
 
-interface IMainContainer {
-  children: React.ReactNode;
-}
-
-export const MainContainer: FC<IMainContainer> = ({ children }) => {
+export const MainContainer: FC = () => {
   return (
     <div className='main-container'>
       <Header />
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
