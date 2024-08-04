@@ -1,3 +1,4 @@
+import { IRatings } from '@app-types/ratings';
 import { ENDPOINTS } from './endpoints';
 import { axiosInstance } from './instance';
 
@@ -25,7 +26,7 @@ export const getQuantRankingAPI = async (): Promise<Record<string, boolean>> => 
   return data;
 };
 
-export const getRatingSummaryAPI = async (): Promise<Record<string, boolean>> => {
+export const getRatingSummaryAPI = async (): Promise<IRatings> => {
   const { data } = await axiosInstance.get(`${ENDPOINTS.RatingSummary}`);
 
   return data;

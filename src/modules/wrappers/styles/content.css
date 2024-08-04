@@ -1,0 +1,11 @@
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    min-width: 100%;
+}
+
+.content{
+    flex-basis: 80%;
+}
