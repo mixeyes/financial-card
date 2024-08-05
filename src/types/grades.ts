@@ -6,7 +6,7 @@ export type TGrade = 'A-' | 'A' | 'A+' | 'B-' | 'B' | 'B+' | 'C-' | 'C' | 'C+' |
 
 export type TFactor = 'Valuation' | 'Growth' | 'Profitability' | 'Momentum' | 'Revisions';
 
-export interface FactorGradesData {
+export interface IFactorGradesData {
   factor: TFactor;
   now: TGrade;
   threeMonthsAgo: TGrade;

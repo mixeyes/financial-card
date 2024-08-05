@@ -13,7 +13,9 @@
     "format": "prettier ./**/*.{html,ts,tsx,json,xml,md,scss}",
     "format:quiet": "npm run format -- --list-different",
     "format:fix": "npm run format -- --write",
-    "fix:all": "npm run format:fix && npm run lint:fix"
+    "fix:all": "npm run format:fix && npm run lint:fix",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.20.1",
@@ -24,6 +26,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-strip": "^3.0.4",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -42,6 +47,8 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.9",
+    "happy-dom": "^14.12.3",
+    "jsdom": "^24.1.1",
     "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",

@@ -1,7 +1,10 @@
-import { FactorGradesData, IGradeItem, T3MGrades, T6MGrades, TFactor, TGrades } from '@app-types/grades';
+import { IFactorGradesData, IGradeItem, T3MGrades, T6MGrades, TFactor, TGrades } from '@app-types/grades';
 
-export const formatGradesData = (now: TGrades, grade3M: T3MGrades, grade6M: T6MGrades): FactorGradesData[] => {
-  const newArr: FactorGradesData[] = [];
+export const formatGradesData = (now?: TGrades, grade3M?: T3MGrades, grade6M?: T6MGrades): IFactorGradesData[] => {
+  if (!now || !grade3M || !grade6M) {
+    return [];
+  }
+  const newArr: IFactorGradesData[] = [];
   Object.entries(now).forEach(([k, v]) => {
     const key = k as TFactor;
     const value = v as IGradeItem;
@@ -12,5 +15,5 @@ export const formatGradesData = (now: TGrades, grade3M: T3MGrades, grade6M: T6MG
       threeMonthsAgo: grade3M[key],
     });
   });
-  return newArr as FactorGradesData[];
+  return newArr as IFactorGradesData[];
 };

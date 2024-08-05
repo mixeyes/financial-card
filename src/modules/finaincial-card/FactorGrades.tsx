@@ -8,13 +8,14 @@ import {
   createColumnHelper,
   flexRender,
 } from '@tanstack/react-table';
-import { FactorGradesData } from '@app-types/grades';
+import { IFactorGradesData } from '@app-types/grades';
 import './styles/card.css';
+import { Skeleton } from '@components/skeleton/Skeleton';
 
-const columnHelper = createColumnHelper<FactorGradesData>();
+const columnHelper = createColumnHelper<IFactorGradesData>();
 
 interface IFactorGrades {
-  grades: FactorGradesData[];
+  grades: IFactorGradesData[] | null;
 }
 
 export const FactorGrades: FC<IFactorGrades> = ({ grades }) => {
@@ -43,34 +44,38 @@ export const FactorGrades: FC<IFactorGrades> = ({ grades }) => {
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
-  } as TableOptions<FactorGradesData>);
+  } as TableOptions<IFactorGradesData>);
 
   return (
-    <div className='table-container'>
+    <div className='table-container' data-testid='factor-grades'>
       <h3>Factor Grades</h3>
 
-      <table className='card-table'>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup: HeaderGroup<FactorGradesData>) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>{flexRender(header.column.columnDef.header, header.getContext())}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row: Row<FactorGradesData>) => {
-            return (
-              <tr key={row.id} className='first'>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+      {grades ? (
+        <table className='card-table'>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup: HeaderGroup<IFactorGradesData>) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id}>{flexRender(header.column.columnDef.header, header.getContext())}</th>
                 ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row: Row<IFactorGradesData>) => {
+              return (
+                <tr key={row.id} className='first'>
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      ) : (
+        <Skeleton />
+      )}
     </div>
   );
 };

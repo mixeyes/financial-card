@@ -2,21 +2,24 @@ import { FC, useMemo } from 'react';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import './styles/card.css';
 import { IRatingData, IRatings } from '@app-types/ratings';
+import { Skeleton } from '@components/skeleton/Skeleton';
 
 const columnHelper = createColumnHelper<IRatingData>();
 
 interface IRatingsSummaryProps {
-  ratings: IRatings;
+  ratings: IRatings | null;
 }
 
 export const RatingsSummary: FC<IRatingsSummaryProps> = ({ ratings }) => {
   const data: IRatingData[] = useMemo(
     () =>
-      Object.entries(ratings).map(([source, { rating, score }]) => ({
-        rating,
-        score,
-        source,
-      })),
+      ratings
+        ? Object.entries(ratings).map(([source, { rating, score }]) => ({
+            rating,
+            score,
+            source,
+          }))
+        : [],
     [ratings],
   );
 
@@ -39,21 +42,25 @@ export const RatingsSummary: FC<IRatingsSummaryProps> = ({ ratings }) => {
   });
 
   return (
-    <div className='table-container'>
+    <div className='table-container' data-testid='rating-summary'>
       <h3>Ratings Summary</h3>
-      <table className='card-table'>
-        <tbody>
-          {tableInstance.getRowModel().rows.map((row) => {
-            return (
-              <tr key={row.id} className='first'>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
-                ))}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {ratings ? (
+        <table className='card-table'>
+          <tbody>
+            {tableInstance.getRowModel().rows.map((row) => {
+              return (
+                <tr key={row.id} className='first'>
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      ) : (
+        <Skeleton />
+      )}
     </div>
   );
 };

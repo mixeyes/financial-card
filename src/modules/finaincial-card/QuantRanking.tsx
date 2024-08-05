@@ -1,4 +1,5 @@
 import { IQuantRanking } from '@app-types/ranking';
+import { Skeleton } from '@components/skeleton/Skeleton';
 import {
   TableOptions,
   HeaderGroup,
@@ -14,7 +15,7 @@ import { Link } from 'react-router-dom';
 const columnHelper = createColumnHelper<IQuantRanking>();
 
 interface IQuantRankingProps {
-  ranking: IQuantRanking[];
+  ranking: IQuantRanking[] | null;
 }
 
 export const QuantRanking: FC<IQuantRankingProps> = ({ ranking }) => {
@@ -38,30 +39,34 @@ export const QuantRanking: FC<IQuantRankingProps> = ({ ranking }) => {
   } as TableOptions<IQuantRanking>);
 
   return (
-    <div className='table-container'>
+    <div className='table-container' data-testid='quant-ranking'>
       <h3>Quant Ranking</h3>
-      <table className='card-table'>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup: HeaderGroup<IQuantRanking[]>) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>{flexRender(header.column.columnDef.header, header.getContext())}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row: Row<IQuantRanking>) => {
-            return (
-              <tr key={row.id} className='last'>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+      {ranking ? (
+        <table className='card-table'>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup: HeaderGroup<IQuantRanking[]>) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id}>{flexRender(header.column.columnDef.header, header.getContext())}</th>
                 ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row: Row<IQuantRanking>) => {
+              return (
+                <tr key={row.id} className='last'>
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      ) : (
+        <Skeleton />
+      )}
       <Link to='#'>Quant Ratings Beat The Market</Link>
     </div>
   );
