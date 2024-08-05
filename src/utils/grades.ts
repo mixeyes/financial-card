@@ -15,10 +15,3 @@ export const formatGradesData = (now: TGrades, grade3M: T3MGrades, grade6M: T6MG
   return newArr as FactorGradesData[];
 };
 
-export const mockGradesData: FactorGradesData[] = [
-  { factor: 'Valuation', now: 'F', sixMonthsAgo: 'F', threeMonthsAgo: 'F' },
-  { factor: 'Growth', now: 'D-', sixMonthsAgo: 'D', threeMonthsAgo: 'C-' },
-  { factor: 'Profitability', now: 'A+', sixMonthsAgo: 'A+', threeMonthsAgo: 'A+' },
-  { factor: 'Momentum', now: 'B+', sixMonthsAgo: 'C', threeMonthsAgo: 'C-' },
-  { factor: 'Revisions', now: 'B-', sixMonthsAgo: 'C', threeMonthsAgo: 'C' },
-];

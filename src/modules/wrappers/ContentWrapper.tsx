@@ -10,9 +10,9 @@ interface IContentWrapperProps {
 export const ContentWrapper: FC<IContentWrapperProps> = ({ children }) => {
   return (
     <div className='content-wrapper'>
-      <Aside>
+      {/* <Aside>
         <FinancialCard />
-      </Aside>
+      </Aside> */}
       <div className='content'>{children}</div>
       <Aside>
         <FinancialCard />

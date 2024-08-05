@@ -41,11 +41,11 @@ export const RatingsSummary: FC<IRatingsSummaryProps> = ({ ratings }) => {
   return (
     <div className='table-container'>
       <h3>Ratings Summary</h3>
-      <table className='ratings-table'>
+      <table className='card-table'>
         <tbody>
           {tableInstance.getRowModel().rows.map((row) => {
             return (
-              <tr key={row.id}>
+              <tr key={row.id} className='first'>
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
                 ))}

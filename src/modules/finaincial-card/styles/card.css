@@ -9,25 +9,31 @@
   margin: 10px;
 }
 
-.ratings-table {
+.card-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.ratings-table th, .ratings-table td {
+.card-table th, .card-table td {
   padding: 8px;
   text-align: left;
 }
 
-.ratings-table th {
+.card-table th {
   border-bottom: 1px solid #ddd;
 }
 
-.ratings-table td {
+.card-table td {
   border-bottom: 1px solid #f1f1f1;
 }
 
-.ratings-table td:first-child {
+.card-table .first td:first-child {
+  color: #1a73e8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card-table .last td:last-child {
   color: #1a73e8;
   text-decoration: underline;
   cursor: pointer;
