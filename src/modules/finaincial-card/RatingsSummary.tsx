@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
-import './styles/ratingsSummary.css';
+import './styles/card.css';
 import { IRatingData, IRatings } from '@app-types/ratings';
 
 const columnHelper = createColumnHelper<IRatingData>();

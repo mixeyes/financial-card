@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './styles/content.css';
 import { Aside } from '@components/aside/Aside';
-import { FinancialCard } from '@modules/aside-cards/FinancialCard';
+import { FinancialCard } from '@modules/finaincial-card/FinancialCard';
 
 interface IContentWrapperProps {
   children: React.ReactNode;

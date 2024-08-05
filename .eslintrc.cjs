@@ -37,7 +37,13 @@ module.exports = {
     "no-console": "warn",
     "sort-keys": ["error", "asc", { "caseSensitive": true, "natural": false, "minKeys": 2 }],
     "import/no-duplicates": ["error", { "considerQueryString": true }],
-    'import/no-named-as-default': [0]
+    'import/no-named-as-default': [0],
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: ['^@.+'],
+      },
+    ],
     // "sort-imports": ["error", {
     //   "ignoreCase": true,
     //   "ignoreDeclarationSort": false,

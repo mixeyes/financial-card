@@ -45,9 +45,11 @@ export default defineConfig({
       '@api': path.resolve(__dirname, './src/api'),
       '@app-types': path.resolve(__dirname, './src/types'),
       '@components': path.resolve(__dirname, './src/components'),
-      '@context': path.resolve(__dirname, './src/context'),
+      '@constants': path.resolve(__dirname, './src/constants'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
       '@modules': path.resolve(__dirname, './src/modules'),
       '@pages': path.resolve(__dirname, './src/pages'),
+      '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
   server: {

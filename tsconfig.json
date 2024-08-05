@@ -27,15 +27,14 @@
     "paths": {
       "@api": ["src/api"],
       "@api/*": ["src/api/*"],
-      "@components": ["src/components"],
       "@components/*": ["src/components/*"],
-      "@context": ["src/context"],
-      "@context/*": ["src/context/*"],
+      "@constants/*": ["src/constants/*"],
       "@modules": ["src/modules"],
       "@modules/*": ["src/modules/*"],
       "@pages": ["src/pages"],
       "@pages/*": ["src/pages/*"],
-      "@app-types": ["src/types"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@app-types/*": ["src/types/*"]
     },
     "allowSyntheticDefaultImports": true
