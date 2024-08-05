@@ -26,3 +26,9 @@ npm run build
 
 # Start the production server
 npm run start
+
+# Run tests
+npm run test
+
+# run test with coverage check
+npm run test:coverage
