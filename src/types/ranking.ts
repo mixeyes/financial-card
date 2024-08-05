@@ -1,5 +1,4 @@
 export interface IQuantRanking {
-    category: string;
-    detail: string;
-};
-
+  category: string;
+  detail: string;
+}

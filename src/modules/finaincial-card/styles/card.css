@@ -9,6 +9,12 @@
   margin: 10px;
 }
 
+@media only screen and (max-width: 770px ) {
+    .table-container {
+       width: 85vw;
+    }
+}
+
 .card-table {
   width: 100%;
   border-collapse: collapse;

@@ -29,6 +29,7 @@
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
+      "@context/*": ["src/context/*"],
       "@modules": ["src/modules"],
       "@modules/*": ["src/modules/*"],
       "@pages": ["src/pages"],

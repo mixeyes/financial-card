@@ -9,3 +9,9 @@
 .content{
     flex-basis: 80%;
 }
+@media only screen and (max-width: 770px ) {
+    .content-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -17,7 +17,7 @@ export const FinancialCard: FC = () => {
 
   useEffect(() => {
     (async () => {
-      const [rat,rank] = await Promise.all([getRatingSummaryAPI(),getQuantRankingAPI()]);
+      const [rat, rank] = await Promise.all([getRatingSummaryAPI(), getQuantRankingAPI()]);
       setRatings(() => rat);
       setRanking(() => rank);
     })();

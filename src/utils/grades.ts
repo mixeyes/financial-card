@@ -14,4 +14,3 @@ export const formatGradesData = (now: TGrades, grade3M: T3MGrades, grade6M: T6MG
   });
   return newArr as FactorGradesData[];
 };
-
