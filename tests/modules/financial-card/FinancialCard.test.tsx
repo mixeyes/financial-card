@@ -3,6 +3,8 @@ import { FinancialCard } from '../../../src/modules/finaincial-card/FinancialCar
 import { getRatingSummaryAPI, getQuantRankingAPI } from '../../../src/api/factorGrades';
 import { afterEach, describe, expect, it, MockedFunction, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
+import { RANKING_MOCK } from '../../../src/constants/ranking';
+import { IRatings } from '../../../src/types/ratings';
 
 vi.mock('@api/factorGrades');
 vi.mock('@hooks/useGrades', () => ({
@@ -15,8 +17,11 @@ describe('FinancialCard', () => {
   });
 
   it('should render RatingsSummary, FactorGrades, and QuantRanking components for premium users', async () => {
-    const mockRatings = { rating: 4.5 };
-    const mockRanking = [{ rank: 1 }, { rank: 2 }];
+    const mockRatings: IRatings = {
+      'Source A': { rating: '4.5', score: 90 },
+      'Source B': { rating: '3.8', score: 75 },
+    };
+    const mockRanking = RANKING_MOCK;
     (getRatingSummaryAPI as MockedFunction<typeof getRatingSummaryAPI>).mockResolvedValueOnce(mockRatings);
     (getQuantRankingAPI as MockedFunction<typeof getQuantRankingAPI>).mockResolvedValueOnce(mockRanking);
 
@@ -32,7 +37,7 @@ describe('FinancialCard', () => {
   });
 
   it('should render only QuantRanking component for non-premium users', async () => {
-    const mockRanking = [{ rank: 1 }, { rank: 2 }];
+    const mockRanking = RANKING_MOCK;
     (getQuantRankingAPI as MockedFunction<typeof getQuantRankingAPI>).mockResolvedValueOnce(mockRanking);
 
     render(<FinancialCard isPremium={false} />, { wrapper: MemoryRouter });

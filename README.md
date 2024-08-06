@@ -1,4 +1,5 @@
 # Financial Card component DEMO
+
 Web application for demonstrating Financial Card component functionality
 
 ## Getting Started
@@ -16,7 +17,6 @@ install NodeJS version >18.x
 
 ### Running
 
-
 ```bash
 # Start the development server
 npm run start:dev
@@ -32,3 +32,4 @@ npm run test
 
 # run test with coverage check
 npm run test:coverage
+```
